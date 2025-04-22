@@ -1,0 +1,168 @@
+{
+    "title": "Threat Intelligence Report",
+    "created_at": "2024-12-01T10:00:00Z",
+    "updated_at": "2025-01-15T16:45:00Z",
+    "executive_summary": {
+      "overview": "This intelligence report summarizes digital exposure discovered during reconnaissance of acme-corp.net.",
+      "targets_scope": "acme-corp.net",
+      "high_level_findings": "We discovered 12 subdomains, identified 4 exposed assets, and uncovered 3 leaked credential sets."
+    },
+    "report_metadata": {
+      "report_version": "1.3.0",
+      "generated_by": "Automated Scanner",
+      "generated_at": "2025-01-15T16:30:00Z"
+    },
+    "methodology": [
+      { "task": "Subdomain Enumeration", "status": "Completed", "description": "Used DNS brute force to identify subdomains." },
+      { "task": "Logstealers Search", "status": "Completed", "description": "Cross-referenced log stealer dumps against company emails." },
+      { "task": "Assets Search", "status": "In Progress", "description": "Scanning exposed IPs for open services." },
+      { "task": "Process Found Files", "status": "Pending", "description": "Parsing public files for metadata leaks." }
+    ],
+    "findings": {
+      "domain_dns_intelligence": {
+        "domains": 3,
+        "dns_records_summary": {
+          "ns_records_info": [
+            { "name": "ns1.acme-corp.net", "ip": "192.0.2.1" }
+          ],
+          "mx_records_info": [
+            { "name": "mail.acme-corp.net", "ip": "192.0.2.2" }
+          ],
+          "ns_note": "Legacy DNS servers may not support DNSSEC.",
+          "mx_note": "MX server does not enforce SPF."
+        },
+        "whois_info_shown": [
+          {
+            "domain_name": "acme-corp.net",
+            "registrar": "Namecheap",
+            "creation_date": "2020-01-01",
+            "updated_date": "2024-01-01",
+            "expiration_date": "2025-01-01"
+          }
+        ],
+        "whois_note": "Contact info is redacted."
+      },
+      "network_infrastructure": {
+        "asn_count": 2,
+        "shared_hosting_summary": {
+          "hosts": [
+            {
+              "domain": "vpn.acme-corp.net",
+              "shared_with": ["blog.hacktivist.net", "torrent.safe.zone"],
+              "shared_with_truncated": true
+            }
+          ],
+          "note": "VPN endpoint shares hosting with suspicious domains."
+        }
+      },
+      "subdomain_enumeration": {
+        "total_found": 12,
+        "shown": [
+          "api.acme-corp.net",
+          "admin.acme-corp.net",
+          "dev1.acme-corp.net",
+          "internal.acme-corp.net",
+          "login.acme-corp.net",
+          "test-db.acme-corp.net",
+          "backup1.acme-corp.net"
+        ],
+        "note": "High-risk subdomains include admin, login, and internal nodes."
+      },
+      "certificate_https": {
+        "certificates": [
+          {
+            "common_name": "api.acme-corp.net",
+            "valid_from": "2024-01-01",
+            "valid_to": "2025-01-01"
+          },
+          {
+            "common_name": "admin.acme-corp.net",
+            "valid_from": "2022-01-01",
+            "valid_to": "2023-01-01"
+          }
+        ]
+      },
+      "exposed_assets": {
+        "shown": [
+          {
+            "ip": "203.0.113.45",
+            "domain": "vpn.acme-corp.net",
+            "isp": "Cloudflare",
+            "risk_level": "High",
+            "open_ports": [
+              { "port": 443, "module": "nginx", "version": "1.20.1", "ssl": [{ "common_name": "vpn.acme-corp.net", "issuer": "Let's Encrypt", "versions": "TLS 1.2" }] }
+            ],
+            "vulnerabilities": [
+              {
+                "title": "OpenSSH < 8.0 RCE",
+                "severity": "Critical",
+                "cvss": "9.8",
+                "description": "Allows unauthenticated remote code execution."
+              }
+            ],
+            "recommendation": "Upgrade OpenSSH and restrict access to known IPs."
+          }
+        ],
+        "note": "Only high-risk assets are shown in this summary."
+      },
+      "data_leaks_and_breaches": {
+        "logstealer_leaks": {
+          "total": 2,
+          "shown": [
+            ["ceo@acme-corp.net", "hunter2", "vpn.acme-corp.net", "2023"],
+            ["admin@acme-corp.net", "qwerty123", "admin.acme-corp.net", "2023"]
+          ],
+          "note": "Some credentials were reused across services."
+        },
+        "public_leaks": {
+          "total": 1,
+          "shown": [
+            ["user@acme-corp.net", "letmein", "HaveIBeenPwned", "2019"]
+          ]
+        },
+        "combo_leaks": {
+          "total": 1,
+          "shown": [
+            ["tech@acme-corp.net", "12345678", "acme-corp.net", "2022"]
+          ]
+        }
+      },
+      "employee_information": {
+        "total_found": 2,
+        "shown": [
+          { "fullname": "Alice Smith", "poste": "CTO" },
+          { "fullname": "Bob Jones", "poste": "Lead Security Analyst" }
+        ]
+      },
+      "metadata_public_files": {
+        "files": [
+          { "name": "internal-doc.pdf", "url": "https://acme-corp.net/files/internal-doc.pdf" }
+        ],
+        "sensitive_data": []
+      }
+    },
+    "risk_assessment": {
+      "high_risks": [
+        "VPN endpoint exposed to internet",
+        "Credentials found in public breach"
+      ],
+      "medium_risks": [
+        "Shared hosting with unknown domains"
+      ],
+      "info_risks": [
+        "Outdated TLS versions detected"
+      ]
+    },
+    "recommendations": {
+      "critical": [
+        { "area": "Access Control", "recommendation": "Disable public access to the admin panel." }
+      ],
+      "important": [
+        { "area": "Encryption", "recommendation": "Enforce TLS 1.3 and rotate expired certificates." }
+      ],
+      "best_practice": [
+        { "area": "Subdomain hygiene", "recommendation": "Clean up unused subdomains like test-db." }
+      ]
+    }
+  }
+  
