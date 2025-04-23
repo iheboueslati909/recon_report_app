@@ -1,8 +1,8 @@
-<div style="display: flex; flex-wrap: wrap; gap: 16px;">
+<div class="flex flex-wrap gap-4">
   <% shown.each do |emp| %>
-    <div style="flex: 1 1 45%; background-color: #1a273b; padding: 12px 16px; border-radius: 6px;">
-      <p style="margin: 0; font-size: 14px; font-weight: 600; color: #ffffff;"><%= emp[:fullname] %></p>
-      <p style="margin-top: 4px; font-size: 13px; color: #cccccc;"><%= emp[:poste].presence || "N/A" %></p>
+    <div class="employee-card">
+      <p class="text-white mb-0 font-bold"><%= emp[:fullname] %></p>
+      <p class="text-muted mt-1"><%= emp[:poste].presence || "N/A" %></p>
     </div>
   <% end %>
 </div>

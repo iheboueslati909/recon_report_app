@@ -1,11 +1,11 @@
-<div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+<div class="flex flex-wrap gap-4 mt-5">
   <% if local_assigns[:highlights].present? %>
     <% subdomains = highlights[/discovered (\d+) subdomains/, 1] %>
     <% assets = highlights[/identified (\d+) exposed assets/, 1] %>
     <% leaks = highlights[/uncovered (\d+) leaked credential sets/, 1] %>
 
-    <%= render 'reports/partials/metric_box', title: 'Subdomains', value: subdomains, color: '#9ecfff' if subdomains %>
-    <%= render 'reports/partials/metric_box', title: 'Exposed Assets', value: assets, color: '#ffdf9e' if assets %>
-    <%= render 'reports/partials/metric_box', title: 'Leaked Credentials', value: leaks, color: '#ff9e9e' if leaks %>
+    <%= render 'reports/partials/metric_box', title: 'Subdomains', value: subdomains, color_class: 'risk-low' if subdomains %>
+    <%= render 'reports/partials/metric_box', title: 'Exposed Assets', value: assets, color_class: 'text-yellow' if assets %>
+    <%= render 'reports/partials/metric_box', title: 'Leaked Credentials', value: leaks, color_class: 'risk-high' if leaks %>
   <% end %>
 </div>

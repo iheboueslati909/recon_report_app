@@ -1,19 +1,24 @@
-<div style="page-break-before: always;"></div>
-<% subdomains = @report_data.dig(:findings, :subdomain_enumeration) || {} %>
-<% shown = subdomains[:shown] || [] %>
+<div class="page-break">
+  <% subdomains = @report_data.dig(:findings, :subdomain_enumeration) || {} %>
+  <% shown = subdomains[:shown] || [] %>
 
-<% if subdomains[:total_found].to_i > 0 %>
-  <div style="margin: 40px 0;padding: 25px; border-radius: 8px;">
-    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 15px;text-align: center;">Subdomain Enumeration</h3>
-    
-    <p style="font-size: 14px; color: #4b566b; margin-bottom: 15px;">
-      This section highlights a sample of the subdomains identified during the reconnaissance process. The full list — along with associated technologies, open ports, and vulnerabilities — is available in the Oktoboot dashboard for deeper investigation and remediation.
-    </p>
+  <% if subdomains[:total_found].to_i > 0 %>
+    <div class="report-section">
+      <h3 class="heading-secondary text-center">Subdomain Enumeration</h3>
+      
+      <p class="text-regular mb-4">
+        This section highlights a sample of the subdomains identified during the reconnaissance process. The full list — along with associated technologies, open ports, and vulnerabilities — is available in the Oktoboot dashboard for deeper investigation and remediation.
+      </p>
 
-    <p style="font-size: 14px; color: #4b566b; margin-bottom: 10px;">
-      <strong>Total Unique Subdomains Found:</strong> <%= subdomains[:total_found] %>
-    </p>
+      <p class="text-regular mb-3">
+        <strong>Total Unique Subdomains Found:</strong> <%= subdomains[:total_found] %>
+      </p>
 
-    <%= render 'reports/partials/subdomain_table', shown: shown %>
-  </div>
-<% end %>
+      <%= render 'reports/partials/subdomain_table', shown: shown %>
+
+      <p class="text-muted mt-3">
+        High-risk subdomains include admin, login, and internal nodes.
+      </p>
+    </div>
+  <% end %>
+</div>

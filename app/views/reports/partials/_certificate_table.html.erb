@@ -1,9 +1,9 @@
-<table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+<table class="table-base">
   <thead>
-    <tr style="background-color: #ccd0d6;">
-      <th align="left" style="padding: 6px;">Common Name</th>
-      <th align="left" style="padding: 6px;">Valid From</th>
-      <th align="left" style="padding: 6px;">Valid To</th>
+    <tr class="table-header">
+      <th class="table-cell text-left">Common Name</th>
+      <th class="table-cell text-left">Valid From</th>
+      <th class="table-cell text-left">Valid To</th>
     </tr>
   </thead>
   <tbody>
@@ -16,11 +16,11 @@
 
       <% is_expired = valid_to.present? && valid_to < now %>
       <tr>
-        <td style="padding: 6px;"><%= cert[:common_name].presence || "N/A" %></td>
-        <td style="padding: 6px;"><%= cert[:valid_from].presence || "N/A" %></td>
-        <td style="padding: 6px; <%= is_expired ? 'color: #ff7b7b; font-weight: 600;' : '' %>">
+        <td class="table-cell"><%= cert[:common_name].presence || "N/A" %></td>
+        <td class="table-cell"><%= cert[:valid_from].presence || "N/A" %></td>
+        <td class="table-cell <%= is_expired ? 'risk-high' : '' %>">
           <%= cert[:valid_to].presence || "N/A" %>
-          <% if is_expired %><span style="color: #ff7b7b;"> (expired)</span><% end %>
+          <% if is_expired %><span class="risk-high"> (expired)</span><% end %>
         </td>
       </tr>
     <% end %>
@@ -28,7 +28,7 @@
 </table>
 
 <% if certs.size == 5 %>
-  <p style="font-size: 13px; color: #aaaaaa; margin-top: 10px;">
+  <p class="text-small text-muted mt-3">
     Only the first 5 certificates are shown. View the Oktoboot dashboard for the full list.
   </p>
 <% end %>

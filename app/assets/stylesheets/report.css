@@ -1,0 +1,300 @@
+/* Layout */
+.report-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
+}
+
+.report-section {
+  margin: 40px 0;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+/* Typography */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/* Headings */
+.heading-primary {
+  font-size: 26px;
+  color: #121e2b;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.heading-secondary {
+  font-size: 20px;
+  color: #121e2b;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.heading-tertiary {
+  font-size: 16px;
+  color: #4b566b;
+  margin-bottom: 10px;
+}
+
+/* Tables */
+.table-base {
+  width: 100%;
+  font-size: 13px;
+  color: #4b566b;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #ccd0d6;
+}
+
+.table-cell {
+  padding: 6px;
+}
+
+/* Text Styles */
+.text-regular {
+  font-size: 14px;
+  color: #4b566b;
+}
+
+.text-small {
+  font-size: 13px;
+  color: #4b566b;
+}
+
+.text-muted {
+  color: #aaaaaa;
+}
+
+/* Text Colors */
+.text-yellow {
+  color: #ffd666;
+  font-weight: 600;
+}
+
+/* Risk Colors */
+.risk-high {
+  color: #ff7b7b;
+  font-weight: 600;
+}
+
+.risk-medium {
+  color: #ffc078;
+  font-weight: 600;
+}
+
+.risk-low {
+  color: #73c2fb;
+  font-weight: 600;
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-4 {
+  gap: 16px;
+}
+
+/* Components */
+.metric-box {
+  flex: 1;
+  min-width: 150px;
+  background-color: #2e3e5c;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.employee-card {
+  flex: 1 1 45%;
+  background-color: #1a273b;
+  padding: 12px 16px;
+  border-radius: 6px;
+}
+
+/* Recommendation Styles */
+.rec-group {
+  margin-bottom: 25px;
+}
+
+.rec-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.rec-item {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-left: 3px solid transparent;
+}
+
+.rec-area {
+  margin-bottom: 4px;
+}
+
+.rec-text {
+  color: #5c7598;
+  font-size: 14px;
+}
+
+/* Critical */
+.critical {
+  color: #ff6b6b;
+}
+
+.rec-item.critical {
+  border-left-color: #ff6b6b;
+}
+
+/* Important */
+.important {
+  color: #ffd666;
+}
+
+.rec-item.important {
+  border-left-color: #ffd666;
+}
+
+/* Best Practice */
+.best-practice {
+  color: #73c2fb;
+}
+
+.rec-item.best-practice {
+  border-left-color: #73c2fb;
+}
+
+/* Remove old recommendation styles */
+.recommendation-group,
+.recommendation-item,
+.risk-critical,
+.risk-important,
+.risk-best-practice,
+.risk-critical-border,
+.risk-important-border,
+.risk-best-practice-border {
+  display: none;
+}
+
+/* Logo Container */
+.logo-container {
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 30px;
+}
+
+/* Body Base */
+.report-body {
+  font-family: 'Orbitron', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+/* Asset Details */
+.asset-header {
+  margin-bottom: 15px;
+}
+
+.asset-meta {
+  font-size: 14px;
+  color: #4b566b;
+}
+
+.meta-separator {
+  margin: 0 8px;
+  color: #4b566b;
+}
+
+.text-blue {
+  color: #9ecfff;
+}
+
+.text-gray {
+  color: #4b566b;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.vuln-item {
+  padding: 10px 0;
+}
+
+.vuln-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #73c2fb;
+}
+
+.vuln-severity {
+  font-size: 13px;
+  color: #ff7b7b;
+  margin: 3px 0;
+}
+
+.vuln-desc {
+  font-size: 13px;
+  color: #4b566b;
+  margin-top: 4px;
+}
+
+/* Methodology Styles */
+.methodology-group {
+  margin-bottom: 25px;
+}
+
+.methodology-category {
+  font-size: 16px;
+  color: #4b566b;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #3c5fc3;
+}
+
+.methodology-tasks {
+  margin-top: 10px;
+}
+
+.methodology-task {
+  margin-bottom: 15px;
+  padding: 0 0 15px 0;
+}
+
+.task-name {
+  color: #5c7598;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.task-critical {
+  color: #ff9e9e;
+}
+
+.task-status {
+  font-size: 13px;
+  color: #aaaaaa;
+  margin: 4px 0;
+}
+
+.task-description {
+  font-size: 14px;
+  color: #5c7598;
+}

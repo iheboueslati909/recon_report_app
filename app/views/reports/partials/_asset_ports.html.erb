@@ -1,21 +1,21 @@
 <div>
-  <h5 style="font-size: 15px; color: #4b566b; font-weight: 600; margin-top: 20px;">Open Ports</h5>
-  <table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse; margin-top: 10px;">
+  <h5 class="heading-tertiary mt-5">Open Ports</h5>
+  <table class="table-base mt-3">
     <thead>
-      <tr style="background-color: #ccd0d6;">
-        <th align="left" style="padding: 8px;">Port</th>
-        <th align="left" style="padding: 8px;">Module</th>
-        <th align="left" style="padding: 8px;">Version</th>
-        <th align="left" style="padding: 8px;">SSL</th>
+      <tr class="table-header">
+        <th class="table-cell p-2 text-left">Port</th>
+        <th class="table-cell p-2 text-left">Module</th>
+        <th class="table-cell p-2 text-left">Version</th>
+        <th class="table-cell p-2 text-left">SSL</th>
       </tr>
     </thead>
     <tbody>
       <% ports.each do |port| %>
         <tr>
-          <td style="padding: 6px;"><%= port[:port] %></td>
-          <td style="padding: 6px;"><%= port[:module] %></td>
-          <td style="padding: 6px;"><%= port[:version].presence || "N/A" %></td>
-          <td style="padding: 6px;">
+          <td class="table-cell p-1"><%= port[:port] %></td>
+          <td class="table-cell p-1"><%= port[:module] %></td>
+          <td class="table-cell p-1"><%= port[:version].presence || "N/A" %></td>
+          <td class="table-cell p-1">
             <%= render 'reports/partials/port_ssl_info', ssl: port[:ssl] %>
           </td>
         </tr>

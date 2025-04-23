@@ -1,19 +1,20 @@
-<div style="page-break-before: always;"></div>
-<% risks = @report_data[:risk_assessment] || {} %>
-<% high_risks = risks[:high_risks] || [] %>
-<% medium_risks = risks[:medium_risks] || [] %>
-<% info_risks = risks[:info_risks] || [] %>
+<div class="page-break">
+  <% risks = @report_data[:risk_assessment] || {} %>
+  <% high_risks = risks[:high_risks] || [] %>
+  <% medium_risks = risks[:medium_risks] || [] %>
+  <% info_risks = risks[:info_risks] || [] %>
 
-<% if high_risks.any? || medium_risks.any? || info_risks.any? %>
-  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
-    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 16px; text-align: center;">Risk Assessment</h3>
+  <% if high_risks.any? || medium_risks.any? || info_risks.any? %>
+    <div class="report-section">
+      <h3 class="heading-secondary text-center">Risk Assessment</h3>
 
-    <p style="font-size: 14px; color: #4b566b; margin-bottom: 20px;">
-      The following risks were identified during the reconnaissance phase. They are categorized by severity and may require immediate remediation or strategic consideration.
-    </p>
+      <p class="text-regular mb-5">
+        The following risks were identified during the reconnaissance phase. They are categorized by severity and may require immediate remediation or strategic consideration.
+      </p>
 
-    <%= render 'reports/partials/risk_section', title: 'High Risks', risks: high_risks, color: '#ff6b6b' if high_risks.any? %>
-    <%= render 'reports/partials/risk_section', title: 'Medium Risks', risks: medium_risks, color: '#f7c948' if medium_risks.any? %>
-    <%= render 'reports/partials/risk_section', title: 'Informational', risks: info_risks, color: '#9ecfff' if info_risks.any? %>
-  </div>
-<% end %>
+      <%= render 'reports/partials/risk_section', title: 'High Risks', risks: high_risks, color_class: 'risk-high' if high_risks.any? %>
+      <%= render 'reports/partials/risk_section', title: 'Medium Risks', risks: medium_risks, color_class: 'risk-medium' if medium_risks.any? %>
+      <%= render 'reports/partials/risk_section', title: 'Informational', risks: info_risks, color_class: 'risk-low' if info_risks.any? %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
-<div style="margin-bottom: 25px;">
-  <h4 style="font-size: 16px; color: #4b566b; margin-bottom: 10px;">DNS Records</h4>
+<div class="mb-6">
+  <h4 class="heading-tertiary mb-3">DNS Records</h4>
 
   <% if dns_summary[:ns_records_info].present? %>
     <%= render 'reports/partials/ns_records', records: dns_summary[:ns_records_info], note: dns_summary[:ns_note] %>

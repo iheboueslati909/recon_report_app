@@ -1,23 +1,23 @@
-<div style="page-break-before: always;"></div>
+<div class="page-break"></div>
 <% employees = @report_data.dig(:findings, :employee_information) || {} %>
 <% shown = employees[:shown] || [] %>
 
 <% if employees[:total_found].to_i > 0 %>
-  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
-    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 16px;text-align: center;">Employee Enumeration</h3>
+  <div class="report-section">
+    <h3 class="heading-secondary text-center">Employee Enumeration</h3>
 
-    <p style="font-size: 14px; color: #4b566b; margin-bottom: 12px;">
+    <p class="text-regular mb-3">
       This section lists publicly accessible employees discovered during reconnaissance. Full role breakdowns and exposure context are available in the Oktoboot dashboard.
     </p>
 
-    <p style="font-size: 14px; color: #4b566b; margin-bottom: 20px;">
+    <p class="text-regular mb-5">
       <strong>Total Identified:</strong> <%= employees[:total_found] %>
     </p>
 
     <%= render 'reports/partials/employee_grid', shown: shown %>
 
     <% if employees[:note].present? %>
-      <p style="font-size: 13px; color: #aaaaaa; margin-top: 20px;"><%= employees[:note] %></p>
+      <p class="text-small text-muted mt-5"><%= employees[:note] %></p>
     <% end %>
   </div>
 <% end %>

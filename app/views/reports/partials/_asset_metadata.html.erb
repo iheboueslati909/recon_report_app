@@ -1,13 +1,8 @@
-<div style="font-size: 14px; color: #4b566b; margin-bottom: 12px;">
+<div class="text-regular mb-3">
   <strong>Domain:</strong> <%= asset[:domain].presence || "N/A" %> &nbsp;|&nbsp;
   <strong>ISP:</strong> <%= asset[:isp].presence || "N/A" %> &nbsp;|&nbsp;
   <strong>Risk:</strong> 
-  <span style="<%= case asset[:risk_level]
-                    when "High" then 'color: #ff7b7b; font-weight: 600;'
-                    when "Medium" then 'color: #ffc078; font-weight: 600;'
-                    when "Low" then 'color: #73c2fb; font-weight: 600;'
-                    else ''
-                  end %>">
+  <span class="<%= risk_level_class(asset[:risk_level]) %>">
     <%= asset[:risk_level] %>
   </span>
 </div>

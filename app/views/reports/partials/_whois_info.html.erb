@@ -1,31 +1,31 @@
 <% if whois.any? %>
   <div>
-    <h4 style="font-size: 16px; color: #4b566b; margin-bottom: 10px;">WHOIS Records</h4>
-    <table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+    <h4 class="heading-tertiary">WHOIS Records</h4>
+    <table class="table-base">
       <thead>
-        <tr style="background-color: #ccd0d6;">
-          <th align="left" style="padding: 6px;">Domain</th>
-          <th align="left" style="padding: 6px;">Registrar</th>
-          <th align="left" style="padding: 6px;">Created</th>
-          <th align="left" style="padding: 6px;">Updated</th>
-          <th align="left" style="padding: 6px;">Expires</th>
+        <tr class="table-header">
+          <th class="table-cell text-left">Domain</th>
+          <th class="table-cell text-left">Registrar</th>
+          <th class="table-cell text-left">Created</th>
+          <th class="table-cell text-left">Updated</th>
+          <th class="table-cell text-left">Expires</th>
         </tr>
       </thead>
       <tbody>
         <% whois.each do |w| %>
           <% next if [w[:domain_name], w[:registrar], w[:creation_date], w[:updated_date], w[:expiration_date]].all?(&:blank?) %>
           <tr>
-            <td style="padding: 6px;"><%= w[:domain_name] || "N/A" %></td>
-            <td style="padding: 6px;"><%= w[:registrar] || "N/A" %></td>
-            <td style="padding: 6px;"><%= w[:creation_date] || "N/A" %></td>
-            <td style="padding: 6px;"><%= w[:updated_date] || "N/A" %></td>
-            <td style="padding: 6px;"><%= w[:expiration_date] || "N/A" %></td>
+            <td class="table-cell"><%= w[:domain_name] || "N/A" %></td>
+            <td class="table-cell"><%= w[:registrar] || "N/A" %></td>
+            <td class="table-cell"><%= w[:creation_date] || "N/A" %></td>
+            <td class="table-cell"><%= w[:updated_date] || "N/A" %></td>
+            <td class="table-cell"><%= w[:expiration_date] || "N/A" %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
     <% if local_assigns[:whois_note].present? %>
-      <p style="font-size: 13px; color: #aaaaaa; margin-top: 5px;"><%= whois_note %></p>
+      <p class="text-small text-muted mt-2"><%= whois_note %></p>
     <% end %>
   </div>
 <% end %>

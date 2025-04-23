@@ -1,16 +1,16 @@
-<div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
-  <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 15px;text-align: center;">Executive Summary</h3>
+<div class="report-section">
+  <h3 class="heading-secondary text-center">Executive Summary</h3>
 
   <% overview = @report_data.dig(:executive_summary, :overview) %>
   <% targets = @report_data.dig(:executive_summary, :targets_scope) %>
   <% highlights = @report_data.dig(:executive_summary, :high_level_findings) %>
 
   <% if overview.present? %>
-    <p style="font-size: 15px; color: #4b566b; line-height: 1.6; margin-bottom: 15px;text-align: left;"><strong>Overview:</strong> <%= overview %></p>
+    <p class="text-regular mb-4 text-left"><strong>Overview:</strong> <%= overview %></p>
   <% end %>
 
   <% if targets.present? %>
-    <p style="font-size: 15px; color: #4b566b; line-height: 1.6; margin-bottom: 15px;text-align: left;"><strong>Scope:</strong> <%= targets %></p>
+    <p class="text-regular mb-4 text-left"><strong>Scope:</strong> <%= targets %></p>
   <% end %>
 
   <%= render 'reports/partials/metric_boxes', highlights: highlights %>

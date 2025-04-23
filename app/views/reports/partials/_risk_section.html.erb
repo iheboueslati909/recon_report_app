@@ -1,8 +1,8 @@
 <div>
-  <h4 style="font-size: 16px; color: <%= color %>; font-weight: 600; margin-top: 20px;"><%= title %></h4>
+  <h4 class="heading-tertiary mt-5 <%= color_class %>"><%= title %></h4>
   <% risks.each do |risk| %>
-    <div style="color: #5c7598; margin-left: 10px; margin-top: 6px;">
-      <span style="font-weight: 500;">‣</span> <span><%= risk %></span>
+    <div class="risk-item text-regular ml-3 mt-2">
+      <span class="font-medium">‣</span> <span><%= risk %></span>
     </div>
   <% end %>
 </div>

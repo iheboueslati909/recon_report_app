@@ -1,18 +1,18 @@
-<h4 style="font-size: 16px; color: #4b566b; font-weight: 600; margin-bottom: 10px;">Discovered Files</h4>
-<table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+<h4 class="heading-tertiary mb-3">Discovered Files</h4>
+<table class="table-base">
   <thead>
-    <tr style="background-color: #ccd0d6;">
-      <th align="left" style="padding: 8px;">File Name</th>
-      <th align="left" style="padding: 8px;">URL</th>
+    <tr class="table-header">
+      <th class="table-cell text-left p-2">File Name</th>
+      <th class="table-cell text-left p-2">URL</th>
     </tr>
   </thead>
   <tbody>
     <% files.each do |file| %>
-      <tr style="border-bottom: 1px solid #333;">
-        <td style="padding: 6px; vertical-align: top;"><%= file[:name].presence || "N/A" %></td>
-        <td style="padding: 6px; vertical-align: top;">
+      <tr class="border-bottom">
+        <td class="table-cell align-top"><%= file[:name].presence || "N/A" %></td>
+        <td class="table-cell align-top">
           <% if file[:url].present? %>
-            <a href="<%= file[:url] %>" target="_blank" style="color: #4fb7ff; word-break: break-word; text-decoration: underline;">
+            <a href="<%= file[:url] %>" target="_blank" class="link break-word">
               <%= file[:url] %>
             </a>
           <% else %>

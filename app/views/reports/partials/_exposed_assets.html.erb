@@ -1,21 +1,22 @@
-<div style="page-break-before: always;"></div>
-<% assets = @report_data.dig(:findings, :exposed_assets, :shown) || [] %>
-<% if assets.any? %>
-  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
-    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 15px;text-align: center">Exposed Assets Overview</h3>
+<div class="page-break">
+  <% assets = @report_data.dig(:findings, :exposed_assets, :shown) || [] %>
+  <% if assets.any? %>
+    <div class="report-section">
+      <h3 class="heading-secondary text-center">Exposed Assets Overview</h3>
 
-    <p style="font-size: 14px; color: #4b566b; margin-bottom: 20px;">
-      These exposed assets may pose risk due to open ports, outdated services, or certificate leaks. Risk levels and recommendations are based on observed configurations and known vulnerabilities.
-    </p>
-
-    <% assets.each do |asset| %>
-      <%= render 'reports/partials/asset_detail', asset: asset %>
-    <% end %>
-
-    <% if @report_data.dig(:findings, :exposed_assets, :note).present? %>
-      <p style="font-size: 13px; color: #aaaaaa; margin-top: 10px;">
-        <%= @report_data.dig(:findings, :exposed_assets, :note) %>
+      <p class="text-regular mb-5">
+        These exposed assets may pose risk due to open ports, outdated services, or certificate leaks. Risk levels and recommendations are based on observed configurations and known vulnerabilities.
       </p>
-    <% end %>
-  </div>
-<% end %>
+
+      <% assets.each do |asset| %>
+        <%= render 'reports/partials/asset_detail', asset: asset %>
+      <% end %>
+
+      <% if @report_data.dig(:findings, :exposed_assets, :note).present? %>
+        <p class="text-small text-muted mt-3">
+          <%= @report_data.dig(:findings, :exposed_assets, :note) %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
