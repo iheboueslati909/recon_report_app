@@ -1,0 +1,12 @@
+<div style="margin-bottom: 30px;">
+  <h4 style="color: #9ecfff; font-size: 18px; font-weight: 700; margin-bottom: 10px;"><%= asset[:ip] %></h4>
+
+  <%= render 'reports/partials/asset_metadata', asset: asset %>
+  <%= render 'reports/partials/asset_ports', ports: asset[:open_ports] if asset[:open_ports].present? %>
+  <%= render 'reports/partials/asset_vulnerabilities', vulnerabilities: asset[:vulnerabilities] if asset[:vulnerabilities].present? %>
+  
+  <% if asset[:recommendation].present? %>
+    <p style="margin-top: 25px; font-size: 14px; color: #4b566b; font-weight: 600;">Recommended Mitigation</p>
+    <p style="font-size: 13px; color: #4b566b; margin-top: 5px;"><%= asset[:recommendation] %></p>
+  <% end %>
+</div>

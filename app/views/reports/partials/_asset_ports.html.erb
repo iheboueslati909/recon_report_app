@@ -1,0 +1,25 @@
+<div>
+  <h5 style="font-size: 15px; color: #4b566b; font-weight: 600; margin-top: 20px;">Open Ports</h5>
+  <table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse; margin-top: 10px;">
+    <thead>
+      <tr style="background-color: #ccd0d6;">
+        <th align="left" style="padding: 8px;">Port</th>
+        <th align="left" style="padding: 8px;">Module</th>
+        <th align="left" style="padding: 8px;">Version</th>
+        <th align="left" style="padding: 8px;">SSL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% ports.each do |port| %>
+        <tr>
+          <td style="padding: 6px;"><%= port[:port] %></td>
+          <td style="padding: 6px;"><%= port[:module] %></td>
+          <td style="padding: 6px;"><%= port[:version].presence || "N/A" %></td>
+          <td style="padding: 6px;">
+            <%= render 'reports/partials/port_ssl_info', ssl: port[:ssl] %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

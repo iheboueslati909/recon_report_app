@@ -1,0 +1,26 @@
+<div>
+  <h5 style="font-size: 15px; color: #4b566b; font-weight: 600; margin-top: 25px;">Top Vulnerabilities</h5>
+  <% vulnerabilities.first(5).each do |vuln| %>
+    <div style="margin-bottom: 18px;">
+      <div style="font-size: 14px; font-weight: bold; color: #73c2fb; margin-bottom: 3px;">
+        <%= vuln[:title] %>
+      </div>
+      <div style="font-size: 13px; color: 
+        <%= case vuln[:severity]
+              when 'Critical' then '#c0392b' 
+              when 'High' then '#ff7b7b'
+              when 'Medium' then '#ffc078'
+              else '#bbbbbb'
+          end %>;">
+        <%= vuln[:severity] %> severity — CVSS: <%= vuln[:cvss] %>
+      </div>
+      <div style="font-size: 13px; color: #4b566b; margin-top: 4px;">
+        <%= vuln[:description] %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if vulnerabilities.size > 5 %>
+    <p style="font-size: 12px; color: #aaaaaa;"><em>Only the first 5 vulnerabilities are shown. See dashboard for more.</em></p>
+  <% end %>
+</div>

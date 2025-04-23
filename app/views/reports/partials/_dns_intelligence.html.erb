@@ -1,0 +1,14 @@
+<div style="page-break-before: always;"></div>
+<% dns_info = @report_data.dig(:findings, :domain_dns_intelligence) || {} %>
+<% dns_summary = dns_info[:dns_records_summary] || {} %>
+<% whois = dns_info[:whois_info_shown] || [] %>
+
+<% if dns_info.present? %>
+  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
+    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 20px;text-align: center;">Domain & DNS Intelligence</h3>
+    
+    <%= render 'reports/partials/domain_info', dns_info: dns_info %>
+    <%= render 'reports/partials/dns_records', dns_summary: dns_summary %>
+    <%= render 'reports/partials/whois_info', whois: whois, whois_note: dns_info[:whois_note] %>
+  </div>
+<% end %>

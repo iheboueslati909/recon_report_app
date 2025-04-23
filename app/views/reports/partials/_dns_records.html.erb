@@ -1,0 +1,11 @@
+<div style="margin-bottom: 25px;">
+  <h4 style="font-size: 16px; color: #4b566b; margin-bottom: 10px;">DNS Records</h4>
+
+  <% if dns_summary[:ns_records_info].present? %>
+    <%= render 'reports/partials/ns_records', records: dns_summary[:ns_records_info], note: dns_summary[:ns_note] %>
+  <% end %>
+
+  <% if dns_summary[:mx_records_info].present? %>
+    <%= render 'reports/partials/mx_records', records: dns_summary[:mx_records_info], note: dns_summary[:mx_note] %>
+  <% end %>
+</div>

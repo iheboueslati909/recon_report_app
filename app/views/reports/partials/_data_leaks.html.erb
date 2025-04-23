@@ -1,0 +1,15 @@
+<div style="page-break-before: always;"></div>
+<% leaks = @report_data.dig(:findings, :data_leaks_and_breaches) || {} %>
+<% if leaks[:logstealer_leaks][:total].to_i > 0 || leaks[:public_leaks][:total].to_i > 0 || leaks[:combo_leaks][:total].to_i > 0 %>
+  <div style="margin: 40px 0;padding: 25px; border-radius: 8px;">
+    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 20px;text-align: center;">Data Leaks & Credential Exposure</h3>
+
+    <p style="font-size: 14px; color: #4b566b; margin-bottom: 15px;">
+      These exposed credentials were found across malware logs, public breaches, and combo lists. They may be linked to user accounts or internal access points. Please investigate and rotate impacted credentials immediately. Full dump available in the Oktoboot dashboard.
+    </p>
+
+    <%= render 'reports/partials/logstealer_leaks', leaks: leaks[:logstealer_leaks] if leaks[:logstealer_leaks][:shown].present? %>
+    <%= render 'reports/partials/public_leaks', leaks: leaks[:public_leaks] if leaks[:public_leaks][:shown].present? %>
+    <%= render 'reports/partials/combo_leaks', leaks: leaks[:combo_leaks] if leaks[:combo_leaks][:shown].present? %>
+  </div>
+<% end %>

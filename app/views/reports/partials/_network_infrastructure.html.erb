@@ -1,0 +1,12 @@
+<div style="page-break-before: always;"></div>
+<% network = @report_data.dig(:findings, :network_infrastructure) || {} %>
+<% shared_summary = network[:shared_hosting_summary] || {} %>
+<% shared_hosts = shared_summary[:hosts] || [] %>
+
+<% if network[:asn_count].to_i > 0 || shared_hosts.any? %>
+  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
+    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 20px;text-align: center;">Network Infrastructure</h3>
+    <%= render 'reports/partials/asn_overview', network: network %>
+    <%= render 'reports/partials/shared_hosting', shared_hosts: shared_hosts, note: shared_summary[:note] %>
+  </div>
+<% end %>

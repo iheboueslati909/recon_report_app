@@ -1,0 +1,29 @@
+<div style="page-break-before: always;"></div>
+<% methodology = @report_data[:methodology] || [] %>
+<% task_categories = {
+  "DNS Record Enumeration" => "Domain & DNS Intelligence",
+  "WHOIS Enumeration" => "Domain & DNS Intelligence",
+  "ASN Enumeration" => "Network & Infrastructure",
+  "Subdomain Enumeration" => "Discovery",
+  "Certificate Fetching" => "Discovery",
+  "Shared Hosting Check" => "Network & Infrastructure",
+  "Assets Search" => "Exposed Assets",
+  "Logstealers Search" => "Leak Detection",
+  "Search Leaks" => "Leak Detection",
+  "Combo Search" => "Leak Detection",
+  "Fetch Organization Info" => "Employee Informations",
+  "Employees Search" => "Employee Informations",
+  "File Scraper" => "Discovery",
+  "Process Found Files" => "Analysis & Processing"
+} %>
+
+<% critical_tasks = ["Logstealers Search", "Search Leaks", "Process Found Files", "Assets Search"] %>
+
+<% if methodology.any? %>
+  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
+    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 20px;text-align: center;">Methodology</h3>
+
+    <% grouped = methodology.group_by { |task| task_categories[task[:task]] || "Other" } %>
+    <%= render 'reports/partials/methodology_tasks', grouped: grouped, critical_tasks: critical_tasks %>
+  </div>
+<% end %>

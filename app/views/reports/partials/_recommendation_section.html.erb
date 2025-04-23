@@ -1,0 +1,16 @@
+<% if items.any? %>
+  <h4 style="font-size: 16px; color: <%= color %>; font-weight: 600; margin-top: 30px;">
+    <%= severity %> Recommendations
+  </h4>
+
+  <% items.each do |rec| %>
+    <div style="margin-bottom: 18px; padding: 12px; border-left: 4px solid <%= color %>; border-radius: 4px;">
+      <p style="margin: 0; font-size: 14px; color: <%= color %>;">
+        <strong>Area:</strong> <%= rec[:area] %>
+      </p>
+      <p style="margin: 6px 0 0; font-size: 14px; color: #5c7598;">
+        <%= rec[:recommendation] %>
+      </p>
+    </div>
+  <% end %>
+<% end %>

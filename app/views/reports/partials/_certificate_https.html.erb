@@ -1,0 +1,13 @@
+<div style="page-break-before: always;"></div>
+<% certs = @report_data.dig(:findings, :certificate_https, :certificates) || [] %>
+<% if certs.any? %>
+  <% now = Time.now.utc %>
+  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
+    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 15px;text-align: center;">Certificate HTTPS Enumeration</h3>
+
+    <p style="font-size: 14px; color: #4b566b; margin-bottom: 15px;">
+      This section summarizes digital certificates discovered during reconnaissance. Certificates may reveal subdomains or exposure timelines. Review carefully — and check Oktoboot Dashboard for full details.
+    </p>
+    <%= render 'reports/partials/certificate_table', certs: certs, now: now %>
+  </div>
+<% end %>

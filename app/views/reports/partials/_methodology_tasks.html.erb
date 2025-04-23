@@ -1,0 +1,19 @@
+<% grouped.each do |category, tasks| %>
+  <div style="margin-bottom: 25px;">
+    <h4 style="font-size: 16px; color: #4b566b; margin-bottom: 10px; border-bottom: 1px solid #3c5fc3; padding-bottom: 4px;">
+      <%= category %>
+    </h4>
+    <div style="margin-top: 10px;">
+      <% tasks.each do |task| %>
+        <% is_critical = critical_tasks.include?(task[:task]) %>
+        <div style="margin-bottom: 15px; padding: 10px; border-left: 4px solid '3c5fc3'; border-radius: 5px;">
+          <strong style="color: <%= is_critical ? '#ff9e9e' : '#5c7598' %>;">
+            <%= task[:task] %> <%= "(CRITICAL)" if is_critical %>
+          </strong><br>
+          <span style="font-size: 13px; color: #aaaaaa;">Status: <%= task[:status] %></span><br>
+          <span style="font-size: 14px;color: #5c7598;"><%= task[:description] %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

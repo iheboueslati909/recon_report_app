@@ -1,0 +1,25 @@
+<table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+  <thead>
+    <tr style="background-color: #ccd0d6;">
+      <th align="left" style="padding: 6px;">Root Domain</th>
+      <th align="left" style="padding: 6px;">Subdomain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% grouped = shown.group_by { |s| s.split('.').last(2).join('.') } %>
+    <% grouped.each do |root, subs| %>
+      <% subs.each_with_index do |sd, index| %>
+        <% style = case sd
+          when /admin|login|secure/i then 'color: #ff7b7b; font-weight: 600;'
+          when /dev|test|staging/i then 'color: #73c2fb; font-weight: 600;'
+          when /internal|private|backup/i then 'color: #ffc078; font-weight: 600;'
+          else ''
+        end %>
+        <tr>
+          <td style="padding: 6px;"><%= index.zero? ? root : "" %></td>
+          <td style="padding: 6px; <%= style %>"><%= sd %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,20 @@
+<h5 style="font-size: 14px; color: #a4a4a4; margin: 25px 0 5px;">MX Records</h5>
+<table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+  <thead>
+    <tr style="background-color: #ccd0d6;">
+      <th align="left" style="padding: 6px;">Name</th>
+      <th align="left" style="padding: 6px;">IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% records.each do |rec| %>
+      <tr>
+        <td style="padding: 6px;"><%= rec[:name] %></td>
+        <td style="padding: 6px;"><%= rec[:ip] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if local_assigns[:note].present? %>
+  <p style="font-size: 13px; color: #aaaaaa; margin-top: 5px;"><%= note %></p>
+<% end %>

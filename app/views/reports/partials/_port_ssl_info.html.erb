@@ -1,0 +1,10 @@
+<% if local_assigns[:ssl].present? %>
+  <% ssl.each do |ssl_entry| %>
+    <div style="margin-bottom: 3px;">
+      <strong><%= ssl_entry[:common_name] %></strong><br>
+      <span style="font-size: 12px; color: #bbbbbb;"><%= ssl_entry[:issuer] %> | <%= ssl_entry[:versions] %></span>
+    </div>
+  <% end %>
+<% else %>
+  N/A
+<% end %>

@@ -1,0 +1,8 @@
+<div>
+  <h4 style="font-size: 16px; color: <%= color %>; font-weight: 600; margin-top: 20px;"><%= title %></h4>
+  <% risks.each do |risk| %>
+    <div style="color: #5c7598; margin-left: 10px; margin-top: 6px;">
+      <span style="font-weight: 500;">‣</span> <span><%= risk %></span>
+    </div>
+  <% end %>
+</div>

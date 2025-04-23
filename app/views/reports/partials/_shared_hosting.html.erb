@@ -1,0 +1,33 @@
+<% if shared_hosts.any? %>
+  <h4 style="font-size: 16px; color: #121e2b; margin-top: 25px; margin-bottom: 10px;">Shared Hosting Exposure</h4>
+  <table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: #ccd0d6;">
+        <th align="left" style="padding: 6px;">Domain</th>
+        <th align="left" style="padding: 6px;">Shared With</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% shared_hosts.each do |host| %>
+        <% next if host[:domain].blank? && (host[:shared_with] || []).compact.empty? %>
+        <tr>
+          <td style="padding: 6px;"><%= host[:domain] %></td>
+          <td style="padding: 6px;">
+            <ul style="margin: 0; padding-left: 0; list-style-type: none;">
+              <% host[:shared_with].each do |shared| %>
+                <li><%= shared %></li>
+              <% end %>
+              <% if host[:shared_with_truncated] %>
+                <li style="color: #aaaaaa;"><em>(truncated)</em></li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <% if local_assigns[:note].present? %>
+    <p style="font-size: 13px; color: #aaaaaa;"><%= note %></p>
+  <% end %>
+<% end %>

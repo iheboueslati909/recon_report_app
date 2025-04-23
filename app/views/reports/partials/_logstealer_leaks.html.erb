@@ -1,0 +1,24 @@
+<h4 style="font-size: 16px; color: #4b566b; margin-top: 25px;">Logstealer Leaks</h4>
+<table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse; margin-top: 10px;">
+  <thead>
+    <tr style="background-color: #ccd0d6;">
+      <th align="left" style="padding: 6px;">URL</th>
+      <th align="left" style="padding: 6px;">Email</th>
+      <th align="left" style="padding: 6px;">Password</th>
+      <th align="left" style="padding: 6px;">Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% leaks[:shown].each do |entry| %>
+      <tr>
+        <td style="padding: 6px; word-break: break-word;"><%= entry[2] %></td>
+        <td style="padding: 6px;"><%= entry[0] %></td>
+        <td style="padding: 6px;"><%= entry[1] %></td>
+        <td style="padding: 6px;"><%= entry[3] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% if leaks[:note].present? %>
+  <p style="font-size: 13px; color: #aaaaaa; margin-top: 8px;"><%= leaks[:note] %></p>
+<% end %>

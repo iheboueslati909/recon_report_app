@@ -1,0 +1,34 @@
+<table style="width: 100%; font-size: 13px; color: #4b566b; border-collapse: collapse;">
+  <thead>
+    <tr style="background-color: #ccd0d6;">
+      <th align="left" style="padding: 6px;">Common Name</th>
+      <th align="left" style="padding: 6px;">Valid From</th>
+      <th align="left" style="padding: 6px;">Valid To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% certs.each do |cert| %>
+      <% begin %>
+        <% valid_to = cert[:valid_to].present? ? Time.parse(cert[:valid_to]) : nil %>
+      <% rescue %>
+        <% valid_to = nil %>
+      <% end %>
+
+      <% is_expired = valid_to.present? && valid_to < now %>
+      <tr>
+        <td style="padding: 6px;"><%= cert[:common_name].presence || "N/A" %></td>
+        <td style="padding: 6px;"><%= cert[:valid_from].presence || "N/A" %></td>
+        <td style="padding: 6px; <%= is_expired ? 'color: #ff7b7b; font-weight: 600;' : '' %>">
+          <%= cert[:valid_to].presence || "N/A" %>
+          <% if is_expired %><span style="color: #ff7b7b;"> (expired)</span><% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if certs.size == 5 %>
+  <p style="font-size: 13px; color: #aaaaaa; margin-top: 10px;">
+    Only the first 5 certificates are shown. View the Oktoboot dashboard for the full list.
+  </p>
+<% end %>

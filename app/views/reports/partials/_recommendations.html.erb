@@ -1,0 +1,21 @@
+<div style="page-break-before: always;"></div>
+<% recommendations = @report_data[:recommendations] || {} %>
+<% if recommendations.values.flatten.any? %>
+  <div style="margin: 40px 0; padding: 25px; border-radius: 8px;">
+    <h3 style="font-size: 20px; color: #121e2b; font-weight: 700; margin-bottom: 20px; text-align: center;">
+      Recommendations
+    </h3>
+
+    <p style="font-size: 14px; color: #4b566b; margin-bottom: 16px;">
+      Prioritized guidance based on reconnaissance findings. Grouped by severity for operational clarity.
+    </p>
+
+    <% {
+      "Critical" => [recommendations[:critical], "#ff4c4c"],
+      "Important" => [recommendations[:important], "#f7c948"],
+      "Best Practice" => [recommendations[:best_practice], "#4fb7ff"]
+    }.each do |severity, (items, color)| %>
+      <%= render 'reports/partials/recommendation_section', severity: severity, items: items, color: color if items&.any? %>
+    <% end %>
+  </div>
+<% end %>
