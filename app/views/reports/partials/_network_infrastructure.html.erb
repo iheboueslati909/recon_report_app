@@ -5,8 +5,12 @@
 
   <% if network[:asn_count].to_i > 0 || shared_hosts.any? %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Network Infrastructure</h3>
-      <%= render 'reports/partials/asn_overview', network: network %>
+      <h3 class="heading-md text-center">Network Infrastructure</h3>
+      <h4 class="heading-tertiary mb-3">AS Number Overview</h4>
+      <div class="text-base text-blue mb-3">
+        <strong>Total ASNs Identified:</strong> <%= network[:asn_count] %>
+      </div>
+      
       <%= render 'reports/partials/shared_hosting', shared_hosts: shared_hosts, note: shared_summary[:note] %>
     </div>
   <% end %>

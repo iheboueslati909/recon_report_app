@@ -3,9 +3,9 @@
   <% if certs.any? %>
     <% now = Time.now.utc %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Certificate HTTPS Enumeration</h3>
+      <h3 class="heading-md text-center">Certificate HTTPS Enumeration</h3>
 
-      <p class="text-regular mb-4">
+      <p class="text-base mb-4">
         This section summarizes digital certificates discovered during reconnaissance. Certificates may reveal subdomains or exposure timelines. Review carefully — and check Oktoboot Dashboard for full details.
       </p>
       <%= render 'reports/partials/certificate_table', certs: certs, now: now %>

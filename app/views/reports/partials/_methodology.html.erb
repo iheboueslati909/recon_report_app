@@ -21,7 +21,7 @@
 
   <% if methodology.any? %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Methodology</h3>
+      <h3 class="heading-md text-center">Methodology</h3>
 
       <% grouped = methodology.group_by { |task| task_categories[task[:task]] || "Other" } %>
       <%= render 'reports/partials/methodology_tasks', grouped: grouped, critical_tasks: critical_tasks %>

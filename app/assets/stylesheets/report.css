@@ -1,276 +1,168 @@
-/* Layout */
+/* ===============================
+   DESIGN TOKENS
+=============================== */
+:root {
+  --color-bg-dark: #1a273b;
+  --color-surface: #2e3e5c;
+  --color-primary: #2a4798;
+  --color-accent: #00adee;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-muted: #aaaaaa;
+  --color-body: #6d6e71;
+  --color-title: #121e2b;
+  --color-warning: #ffd666;
+  --color-critical: #ff6b6b;
+  --color-medium: #ffc078;
+  --color-low: #73c2fb;
+  --color-blue: #9ecfff;
+}
+
+/* ===============================
+   LAYOUT
+=============================== */
 .report-container {
   max-width: 700px;
   margin: auto;
   padding: 40px;
 }
 
-.report-section {
-  margin: 40px 0;
-  padding: 25px;
-  border-radius: 8px;
-}
-
 .page-break {
   page-break-before: always;
 }
 
-/* Typography */
-.text-center {
-  text-align: center;
+/* ===============================
+   TYPOGRAPHY
+=============================== */
+body {
+  font-family: 'Orbitron', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--color-body);
+  background-color: var(--color-white);
 }
 
-.text-left {
-  text-align: left;
-}
+.text-center { text-align: center; }
+.text-left { text-align: left; }
 
-/* Headings */
-.heading-primary {
+.heading-lg {
   font-size: 26px;
-  color: #121e2b;
+  color: var(--color-title);
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-.heading-secondary {
+.heading-md {
   font-size: 20px;
-  color: #121e2b;
+  color: var(--color-title);
   font-weight: 700;
   margin-bottom: 16px;
 }
 
-.heading-tertiary {
+.heading-sm {
   font-size: 16px;
-  color: #4b566b;
+  color: var(--color-body);
   margin-bottom: 10px;
 }
 
-/* Tables */
+/* ===============================
+   TEXT UTILITIES
+=============================== */
+.text-sm { font-size: 13px; }
+.text-base { font-size: 14px; }
+.text-muted { color: var(--color-muted); }
+.text-accent { color: var(--color-accent); }
+.text-critical { color: var(--color-critical); font-weight: 600; }
+.text-medium { color: var(--color-medium); font-weight: 600; }
+.text-low { color: var(--color-low); font-weight: 600; }
+.text-blue { color: var(--color-blue); }
+.text-title { color: var(--color-title); font-weight: 600; }
+.text-white { color: var(--color-white); }
+
+/* ===============================
+   SPACING UTILITIES
+=============================== */
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 16px; }
+.mb-4 { margin-bottom: 24px; }
+.pb-2 { padding-bottom: 8px; }
+.pb-3 { padding-bottom: 16px; }
+.mt-3 { margin-top: 16px; }
+
+/* ===============================
+   TABLES
+=============================== */
 .table-base {
   width: 100%;
   font-size: 13px;
-  color: #4b566b;
+  color: var(--color-body);
   border-collapse: collapse;
 }
 
-.table-header {
+.table-base th {
   background-color: #ccd0d6;
-}
-
-.table-cell {
+  font-weight: 600;
   padding: 6px;
 }
 
-/* Text Styles */
-.text-regular {
-  font-size: 14px;
-  color: #4b566b;
+.table-base td {
+  padding: 6px;
 }
 
-.text-small {
-  font-size: 13px;
-  color: #4b566b;
-}
+/* ===============================
+   FLEX UTILITIES
+=============================== */
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.gap-4 { gap: 16px; }
 
-.text-muted {
-  color: #aaaaaa;
-}
-
-/* Text Colors */
-.text-yellow {
-  color: #ffd666;
-  font-weight: 600;
-}
-
-/* Risk Colors */
-.risk-high {
-  color: #ff7b7b;
-  font-weight: 600;
-}
-
-.risk-medium {
-  color: #ffc078;
-  font-weight: 600;
-}
-
-.risk-low {
-  color: #73c2fb;
-  font-weight: 600;
-}
-
-/* Flexbox Utilities */
-.flex {
-  display: flex;
-}
-
-.flex-wrap {
-  flex-wrap: wrap;
-}
-
-.gap-4 {
-  gap: 16px;
-}
-
-/* Components */
+/* ===============================
+   COMPONENTS
+=============================== */
 .metric-box {
   flex: 1;
   min-width: 150px;
-  background-color: #2e3e5c;
+  background-color: var(--color-surface);
   padding: 15px;
   border-radius: 8px;
+  color: var(--color-white);
 }
 
 .employee-card {
   flex: 1 1 45%;
-  background-color: #1a273b;
+  background-color: var(--color-bg-dark);
   padding: 12px 16px;
   border-radius: 6px;
 }
 
-/* Recommendation Styles */
-.rec-group {
-  margin-bottom: 25px;
-}
-
-.rec-title {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
+/* ===============================
+   RECOMMENDATIONS
+=============================== */
+.rec-group { margin-bottom: 25px; }
+.rec-title { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
 .rec-item {
   padding: 12px 15px;
   margin-bottom: 10px;
   border-left: 3px solid transparent;
 }
+.rec-item.critical { border-left-color: var(--color-critical); }
+.rec-item.important-recommendations { border-left-color: var(--color-medium); }
+.rec-item.best-practice-recommendations { border-left-color: var(--color-low); }
+.rec-text { font-size: 14px; color: #5c7598; }
+.rec-area { margin-bottom: 4px; }
 
-.rec-area {
-  margin-bottom: 4px;
-}
-
-.rec-text {
-  color: #5c7598;
-  font-size: 14px;
-}
-
-/* Critical */
-.critical {
-  color: #ff6b6b;
-}
-
-.rec-item.critical {
-  border-left-color: #ff6b6b;
-}
-
-/* Important */
-.important {
-  color: #ffd666;
-}
-
-.rec-item.important {
-  border-left-color: #ffd666;
-}
-
-/* Best Practice */
-.best-practice {
-  color: #73c2fb;
-}
-
-.rec-item.best-practice {
-  border-left-color: #73c2fb;
-}
-
-/* Remove old recommendation styles */
-.recommendation-group,
-.recommendation-item,
-.risk-critical,
-.risk-important,
-.risk-best-practice,
-.risk-critical-border,
-.risk-important-border,
-.risk-best-practice-border {
-  display: none;
-}
-
-/* Logo Container */
-.logo-container {
-  border-radius: 50%;
-  width: 160px;
-  height: 160px;
-  margin: 0 auto 30px;
-}
-
-/* Body Base */
-.report-body {
-  font-family: 'Orbitron', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  color: #ffffff;
-}
-
-/* Asset Details */
-.asset-header {
-  margin-bottom: 15px;
-}
-
-.asset-meta {
-  font-size: 14px;
-  color: #4b566b;
-}
-
-.meta-separator {
-  margin: 0 8px;
-  color: #4b566b;
-}
-
-.text-blue {
-  color: #9ecfff;
-}
-
-.text-gray {
-  color: #4b566b;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.vuln-item {
-  padding: 10px 0;
-}
-
-.vuln-title {
-  font-size: 14px;
-  font-weight: bold;
-  color: #73c2fb;
-}
-
-.vuln-severity {
-  font-size: 13px;
-  color: #ff7b7b;
-  margin: 3px 0;
-}
-
-.vuln-desc {
-  font-size: 13px;
-  color: #4b566b;
-  margin-top: 4px;
-}
-
-/* Methodology Styles */
-.methodology-group {
-  margin-bottom: 25px;
-}
-
+/* ===============================
+   METHODOLOGY
+=============================== */
+.methodology-group { margin-bottom: 25px; }
 .methodology-category {
   font-size: 16px;
-  color: #4b566b;
+  color: var(--color-body);
   font-weight: 600;
   margin-bottom: 10px;
   padding-bottom: 4px;
-  border-bottom: 1px solid #3c5fc3;
-}
-
-.methodology-tasks {
-  margin-top: 10px;
+  border-bottom: 1px solid var(--color-primary);
 }
 
 .methodology-task {
@@ -284,17 +176,47 @@
   margin-bottom: 4px;
 }
 
-.task-critical {
-  color: #ff9e9e;
-}
-
 .task-status {
   font-size: 13px;
-  color: #aaaaaa;
+  color: var(--color-muted);
   margin: 4px 0;
 }
 
 .task-description {
   font-size: 14px;
   color: #5c7598;
+}
+
+.task-critical {
+  color: var(--color-critical);
+}
+
+/* ===============================
+   ASSETS / VULNERABILITIES
+=============================== */
+.asset-meta { font-size: 14px; color: var(--color-body); }
+.meta-separator { margin: 0 8px; color: var(--color-body); }
+.vuln-title { font-size: 14px; font-weight: bold; color: var(--color-low); }
+.vuln-severity { font-size: 13px; color: var(--color-critical); margin: 3px 0; }
+.vuln-desc { font-size: 13px; color: var(--color-body); margin-top: 4px; }
+
+/* ===============================
+   LOGO
+=============================== */
+.logo-container {
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 30px;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-image {
+  max-width: 280px;
+  max-height: 280;
+  width: auto;
+  height: auto;
 }

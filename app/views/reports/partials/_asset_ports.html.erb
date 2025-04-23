@@ -1,23 +1,21 @@
 <div>
-  <h5 class="heading-tertiary mt-5">Open Ports</h5>
-  <table class="table-base mt-3">
+  <h5 class="heading-sm mb-3">Open Ports</h5>
+  <table class="table-base">
     <thead>
-      <tr class="table-header">
-        <th class="table-cell p-2 text-left">Port</th>
-        <th class="table-cell p-2 text-left">Module</th>
-        <th class="table-cell p-2 text-left">Version</th>
-        <th class="table-cell p-2 text-left">SSL</th>
+      <tr>
+        <th class="text-left">Port</th>
+        <th class="text-left">Module</th>
+        <th class="text-left">Version</th>
+        <th class="text-left">SSL</th>
       </tr>
     </thead>
     <tbody>
       <% ports.each do |port| %>
         <tr>
-          <td class="table-cell p-1"><%= port[:port] %></td>
-          <td class="table-cell p-1"><%= port[:module] %></td>
-          <td class="table-cell p-1"><%= port[:version].presence || "N/A" %></td>
-          <td class="table-cell p-1">
-            <%= render 'reports/partials/port_ssl_info', ssl: port[:ssl] %>
-          </td>
+          <td><%= port[:port] %></td>
+          <td><%= port[:module] %></td>
+          <td><%= port[:version].presence || "N/A" %></td>
+          <td><%= render 'reports/partials/port_ssl_info', ssl: port[:ssl] %></td>
         </tr>
       <% end %>
     </tbody>

@@ -1,33 +1,34 @@
 <% if shared_hosts.any? %>
-  <h4 class="heading-tertiary mt-6">Shared Hosting Exposure</h4>
-  <table class="table-base">
-    <thead>
-      <tr class="table-header">
-        <th class="table-cell text-left">Domain</th>
-        <th class="table-cell text-left">Shared With</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% shared_hosts.each do |host| %>
-        <% next if host[:domain].blank? && (host[:shared_with] || []).compact.empty? %>
+  <div>
+    <h4 class="heading-sm mb-3">Shared Hosting Exposure</h4>
+    <table class="table-base">
+      <thead>
         <tr>
-          <td class="table-cell"><%= host[:domain] %></td>
-          <td class="table-cell">
-            <ul class="list-unstyled">
-              <% host[:shared_with].each do |shared| %>
-                <li><%= shared %></li>
-              <% end %>
-              <% if host[:shared_with_truncated] %>
-                <li class="text-muted"><em>(truncated)</em></li>
-              <% end %>
-            </ul>
-          </td>
+          <th class="text-left">Domain</th>
+          <th class="text-left">Shared With</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <% if local_assigns[:note].present? %>
-    <p class="text-small text-muted"><%= note %></p>
-  <% end %>
+      </thead>
+      <tbody>
+        <% shared_hosts.each do |host| %>
+          <tr>
+            <td class="text-base"><%= host[:domain] %></td>
+            <td>
+              <ul class="list-unstyled">
+                <% host[:shared_with].each do |shared| %>
+                  <li class="text-base"><%= shared %></li>
+                <% end %>
+                <% if host[:shared_with_truncated] %>
+                  <li class="text-muted"><em>(truncated)</em></li>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <% if local_assigns[:note].present? %>
+      <p class="text-sm text-muted mt-3"><%= note %></p>
+    <% end %>
+  </div>
 <% end %>

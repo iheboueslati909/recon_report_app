@@ -2,9 +2,9 @@
   <% leaks = @report_data.dig(:findings, :data_leaks_and_breaches) || {} %>
   <% if leaks[:logstealer_leaks][:total].to_i > 0 || leaks[:public_leaks][:total].to_i > 0 || leaks[:combo_leaks][:total].to_i > 0 %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Data Leaks & Credential Exposure</h3>
+      <h3 class="heading-md text-center">Data Leaks & Credential Exposure</h3>
 
-      <p class="text-regular mb-4">
+      <p class="text-base mb-4">
         These exposed credentials were found across malware logs, public breaches, and combo lists. They may be linked to user accounts or internal access points. Please investigate and rotate impacted credentials immediately. Full dump available in the Oktoboot dashboard.
       </p>
 

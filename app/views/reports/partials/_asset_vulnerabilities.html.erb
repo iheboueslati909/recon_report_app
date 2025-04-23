@@ -1,16 +1,10 @@
 <div>
-  <h5 class="heading-tertiary mt-6">Top Vulnerabilities</h5>
+  <h5 class="heading-sm mb-3">Top Vulnerabilities</h5>
   <% vulnerabilities.first(5).each do |vuln| %>
-    <div class="vuln-item mb-4">
-      <div class="text-regular font-bold text-blue mb-1">
-        <%= vuln[:title] %>
-      </div>
-      <div class="text-small <%= vuln_severity_class(vuln[:severity]) %>">
-        <%= vuln[:severity] %> severity — CVSS: <%= vuln[:cvss] %>
-      </div>
-      <div class="text-regular mt-1">
-        <%= vuln[:description] %>
-      </div>
+    <div class="mb-3">
+      <div class="vuln-title mb-1"><%= vuln[:title] %></div>
+      <div class="vuln-severity"><%= vuln[:severity] %> severity — CVSS: <%= vuln[:cvss] %></div>
+      <div class="text-base"><%= vuln[:description] %></div>
     </div>
   <% end %>
 

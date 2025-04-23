@@ -1,14 +1,14 @@
 <% if whois.any? %>
   <div>
-    <h4 class="heading-tertiary">WHOIS Records</h4>
+    <h4 class="heading-sm mb-3">WHOIS Records</h4>
     <table class="table-base">
       <thead>
-        <tr class="table-header">
-          <th class="table-cell text-left">Domain</th>
-          <th class="table-cell text-left">Registrar</th>
-          <th class="table-cell text-left">Created</th>
-          <th class="table-cell text-left">Updated</th>
-          <th class="table-cell text-left">Expires</th>
+        <tr>
+          <th class="text-left">Domain</th>
+          <th class="text-left">Registrar</th>
+          <th class="text-left">Created</th>
+          <th class="text-left">Updated</th>
+          <th class="text-left">Expires</th>
         </tr>
       </thead>
       <tbody>
@@ -25,7 +25,7 @@
       </tbody>
     </table>
     <% if local_assigns[:whois_note].present? %>
-      <p class="text-small text-muted mt-2"><%= whois_note %></p>
+      <p class="text-sm text-muted mt-3"><%= whois_note %></p>
     <% end %>
   </div>
 <% end %>

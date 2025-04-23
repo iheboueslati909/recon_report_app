@@ -1,25 +1,25 @@
-<h4 class="heading-tertiary mb-3">Discovered Files</h4>
-<table class="table-base">
-  <thead>
-    <tr class="table-header">
-      <th class="table-cell text-left p-2">File Name</th>
-      <th class="table-cell text-left p-2">URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% files.each do |file| %>
-      <tr class="border-bottom">
-        <td class="table-cell align-top"><%= file[:name].presence || "N/A" %></td>
-        <td class="table-cell align-top">
-          <% if file[:url].present? %>
-            <a href="<%= file[:url] %>" target="_blank" class="link break-word">
-              <%= file[:url] %>
-            </a>
-          <% else %>
-            N/A
-          <% end %>
-        </td>
+<div>
+  <h4 class="heading-sm mb-3">Discovered Files</h4>
+  <table class="table-base">
+    <thead>
+      <tr>
+        <th class="text-left">File Name</th>
+        <th class="text-left">URL</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% files.each do |file| %>
+        <tr>
+          <td><%= file[:name].presence || "N/A" %></td>
+          <td>
+            <% if file[:url].present? %>
+              <a href="<%= file[:url] %>" target="_blank" class="text-accent"><%= file[:url] %></a>
+            <% else %>
+              N/A
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

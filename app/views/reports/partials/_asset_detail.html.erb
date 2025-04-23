@@ -1,52 +1,28 @@
-<div class="mb-7">
-  <div class="asset-header">
-    <h4 class="text-blue text-lg font-bold mb-2"><%= asset[:ip] %></h4>
-    
-    <div class="asset-meta">
-      <span><strong>Domain:</strong> <%= asset[:domain].presence || "N/A" %></span>
-      <span class="meta-separator">|</span>
-      <span><strong>ISP:</strong> <%= asset[:isp].presence || "N/A" %></span>
-      <span class="meta-separator">|</span>
-      <span><strong>Risk:</strong> <span class="<%= risk_level_class(asset[:risk_level]) %>"><%= asset[:risk_level] %></span></span>
-    </div>
+<div class="mb-4">
+  <h4 class="text-blue text-base font-bold mb-2"><%= asset[:ip] %></h4>
+  
+  <div class="asset-meta mb-3">
+    <span><strong>Domain:</strong> <%= asset[:domain].presence || "N/A" %></span>
+    <span class="meta-separator">|</span>
+    <span><strong>ISP:</strong> <%= asset[:isp].presence || "N/A" %></span>
+    <span class="meta-separator">|</span>
+    <span><strong>Risk:</strong> <span class="<%= risk_level_class(asset[:risk_level]) %>"><%= asset[:risk_level] %></span></span>
   </div>
 
   <% if asset[:open_ports].present? %>
-    <div class="mt-4">
-      <h5 class="text-gray mb-2">Open Ports</h5>
-      <table class="table-base">
-        <thead>
-          <tr class="table-header">
-            <th class="table-cell">Port</th>
-            <th class="table-cell">Module</th>
-            <th class="table-cell">Version</th>
-            <th class="table-cell">SSL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% asset[:open_ports].each do |port| %>
-            <tr>
-              <td class="table-cell"><%= port[:port] %></td>
-              <td class="table-cell"><%= port[:module] %></td>
-              <td class="table-cell"><%= port[:version].presence || "N/A" %></td>
-              <td class="table-cell"><%= render 'reports/partials/port_ssl_info', ssl: port[:ssl] %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <%= render 'reports/partials/asset_ports', ports: asset[:open_ports] %>
   <% end %>
 
   <% if asset[:vulnerabilities].present? %>
-    <div class="mt-5">
-      <h5 class="text-gray mb-3">Top Vulnerabilities</h5>
-      <% asset[:vulnerabilities].each do |vuln| %>
-        <div class="vuln-item mb-3">
-          <div class="vuln-title text-blue mb-1"><%= vuln[:title] %></div>
-          <div class="vuln-severity"><%= vuln[:severity] %> severity — CVSS: <%= vuln[:cvss] %></div>
-          <div class="vuln-desc"><%= vuln[:description] %></div>
-        </div>
-      <% end %>
+    <div class="mt-3">
+      <%= render 'reports/partials/asset_vulnerabilities', vulnerabilities: asset[:vulnerabilities] %>
+    </div>
+  <% end %>
+
+  <% if asset[:recommendation].present? %>
+    <div class="mt-3">
+    <h5 class="heading-sm mb-3">Recommended Mitigation</h5>
+      <p class="text-base"><%= asset[:recommendation] %></p>
     </div>
   <% end %>
 </div>

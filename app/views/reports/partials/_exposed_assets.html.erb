@@ -2,9 +2,9 @@
   <% assets = @report_data.dig(:findings, :exposed_assets, :shown) || [] %>
   <% if assets.any? %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Exposed Assets Overview</h3>
+      <h3 class="heading-md text-center">Exposed Assets Overview</h3>
 
-      <p class="text-regular mb-5">
+      <p class="text-base mb-4">
         These exposed assets may pose risk due to open ports, outdated services, or certificate leaks. Risk levels and recommendations are based on observed configurations and known vulnerabilities.
       </p>
 
@@ -13,7 +13,7 @@
       <% end %>
 
       <% if @report_data.dig(:findings, :exposed_assets, :note).present? %>
-        <p class="text-small text-muted mt-3">
+        <p class="text-sm text-muted mt-3">
           <%= @report_data.dig(:findings, :exposed_assets, :note) %>
         </p>
       <% end %>

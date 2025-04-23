@@ -1,11 +1,11 @@
-<h4 class="heading-tertiary mt-6">Logstealer Leaks</h4>
-<table class="table-base mt-3">
+<h4 class="heading-sm mb-3">Logstealer Leaks</h4>
+<table class="table-base">
   <thead>
-    <tr class="table-header">
-      <th class="table-cell text-left">URL</th>
-      <th class="table-cell text-left">Email</th>
-      <th class="table-cell text-left">Password</th>
-      <th class="table-cell text-left">Year</th>
+    <tr>
+      <th class="text-left">URL</th>
+      <th class="text-left">Email</th>
+      <th class="text-left">Password</th>
+      <th class="text-left">Year</th>
     </tr>
   </thead>
   <tbody>
@@ -20,5 +20,5 @@
   </tbody>
 </table>
 <% if leaks[:note].present? %>
-  <p class="text-small text-muted mt-2"><%= leaks[:note] %></p>
+  <p class="text-sm text-muted mt-3"><%= leaks[:note] %></p>
 <% end %>

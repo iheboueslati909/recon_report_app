@@ -1,9 +1,9 @@
-<h5 class="text-muted mt-6 mb-2">MX Records</h5>
+<h5 class="text-sm text-muted mb-2 mt-3">MX Records</h5>
 <table class="table-base">
   <thead>
-    <tr class="table-header">
-      <th class="table-cell text-left">Name</th>
-      <th class="table-cell text-left">IP</th>
+    <tr>
+      <th class="text-left">Name</th>
+      <th class="text-left">IP</th>
     </tr>
   </thead>
   <tbody>
@@ -16,5 +16,5 @@
   </tbody>
 </table>
 <% if local_assigns[:note].present? %>
-  <p class="text-small text-muted mt-2"><%= note %></p>
+  <p class="text-sm text-muted mt-3"><%= note %></p>
 <% end %>

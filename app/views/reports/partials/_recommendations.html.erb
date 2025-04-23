@@ -2,16 +2,16 @@
   <% recommendations = @report_data[:recommendations] || {} %>
   <% if recommendations.values.flatten.any? %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Recommendations</h3>
+      <h3 class="heading-md text-center">Recommendations</h3>
 
-      <p class="text-regular mb-4">
+      <p class="text-base mb-4">
         Prioritized guidance based on reconnaissance findings. Grouped by severity for operational clarity.
       </p>
 
       <% {
-        "Critical" => [recommendations[:critical], "critical"],
-        "Important Recommendations" => [recommendations[:important], "important"],
-        "Best Practice Recommendations" => [recommendations[:best_practice], "best-practice"]
+        "Critical" => [recommendations[:critical], "text-critical"],
+        "Important Recommendations" => [recommendations[:important], "text-medium"],
+        "Best Practice Recommendations" => [recommendations[:best_practice], "text-low"]
       }.each do |severity, (items, style_class)| %>
         <%= render 'reports/partials/recommendation_section', 
             severity: severity, 

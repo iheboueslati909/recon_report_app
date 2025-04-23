@@ -4,20 +4,20 @@
 
 <% if employees[:total_found].to_i > 0 %>
   <div class="report-section">
-    <h3 class="heading-secondary text-center">Employee Enumeration</h3>
+    <h3 class="heading-md text-center">Employee Enumeration</h3>
 
-    <p class="text-regular mb-3">
+    <p class="text-base mb-3">
       This section lists publicly accessible employees discovered during reconnaissance. Full role breakdowns and exposure context are available in the Oktoboot dashboard.
     </p>
 
-    <p class="text-regular mb-5">
+    <p class="text-base text-blue mb-4">
       <strong>Total Identified:</strong> <%= employees[:total_found] %>
     </p>
 
     <%= render 'reports/partials/employee_grid', shown: shown %>
 
     <% if employees[:note].present? %>
-      <p class="text-small text-muted mt-5"><%= employees[:note] %></p>
+      <p class="text-sm text-muted mt-3"><%= employees[:note] %></p>
     <% end %>
   </div>
 <% end %>

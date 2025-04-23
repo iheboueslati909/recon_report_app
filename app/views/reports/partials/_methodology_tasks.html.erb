@@ -7,7 +7,7 @@
       <% tasks.each do |task| %>
         <% is_critical = critical_tasks.include?(task[:task]) %>
         <div class="methodology-task">
-          <div class="task-name <%= is_critical ? 'task-critical' : '' %>">
+          <div class="task-name <%= is_critical ? 'text-critical' : '' %>">
             <%= task[:task] %> <%= "(CRITICAL)" if is_critical %>
           </div>
           <div class="task-status">Status: <%= task[:status] %></div>

@@ -1,8 +1,8 @@
 <div class="flex flex-wrap gap-4">
   <% shown.each do |emp| %>
     <div class="employee-card">
-      <p class="text-white mb-0 font-bold"><%= emp[:fullname] %></p>
-      <p class="text-muted mt-1"><%= emp[:poste].presence || "N/A" %></p>
+      <p class="text-white mb-1"><%= emp[:fullname] %></p>
+      <p class="text-sm text-muted"><%= emp[:poste].presence || "N/A" %></p>
     </div>
   <% end %>
 </div>

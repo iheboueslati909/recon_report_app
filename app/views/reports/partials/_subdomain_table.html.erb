@@ -1,8 +1,8 @@
 <table class="table-base">
   <thead>
-    <tr class="table-header">
-      <th class="table-cell text-left">Root Domain</th>
-      <th class="table-cell text-left">Subdomain</th>
+    <tr>
+      <th class="text-left">Root Domain</th>
+      <th class="text-left">Subdomain</th>
     </tr>
   </thead>
   <tbody>
@@ -10,14 +10,14 @@
     <% grouped.each do |root, subs| %>
       <% subs.each_with_index do |sd, index| %>
         <% css_class = case sd
-          when /admin|login|secure/i then 'risk-high'
-          when /dev|test|staging/i then 'risk-low'
-          when /internal|private|backup/i then 'risk-medium'
+          when /admin|login|secure/i then 'text-critical'
+          when /dev|test|staging/i then 'text-low'
+          when /internal|private|backup/i then 'text-medium'
           else ''
         end %>
         <tr>
-          <td class="table-cell"><%= index.zero? ? root : "" %></td>
-          <td class="table-cell <%= css_class %>"><%= sd %></td>
+          <td><%= index.zero? ? root : "" %></td>
+          <td class="<%= css_class %>"><%= sd %></td>
         </tr>
       <% end %>
     <% end %>

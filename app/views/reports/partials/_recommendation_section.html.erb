@@ -1,15 +1,15 @@
 <% if items.any? %>
   <div class="rec-group">
-    <h4 class="rec-title <%= style_class %>"><%= severity %></h4>
-    
+    <h4 class="heading-sm <%= style_class %>">
+      <%= severity %>
+    </h4>
+
     <% items.each do |rec| %>
-      <div class="rec-item <%= style_class %>">
-        <div class="rec-area">
-          <strong>Area:</strong> <%= rec[:area] %>
-        </div>
-        <div class="rec-text">
-          <%= rec[:recommendation] %>
-        </div>
+      <div class="rec-item <%= severity.downcase.gsub(' ', '-') %>">
+        <p class="text-base mb-2">
+          <strong class="text-title">Area:</strong> <%= rec[:area] %>
+        </p>
+        <p class="text-base"><%= rec[:recommendation] %></p>
       </div>
     <% end %>
   </div>

@@ -4,19 +4,20 @@
 
   <% if subdomains[:total_found].to_i > 0 %>
     <div class="report-section">
-      <h3 class="heading-secondary text-center">Subdomain Enumeration</h3>
+      <h3 class="heading-md text-center">Subdomain Enumeration</h3>
       
-      <p class="text-regular mb-4">
+      <p class="text-base mb-4">
         This section highlights a sample of the subdomains identified during the reconnaissance process. The full list — along with associated technologies, open ports, and vulnerabilities — is available in the Oktoboot dashboard for deeper investigation and remediation.
       </p>
 
-      <p class="text-regular mb-3">
-        <strong>Total Unique Subdomains Found:</strong> <%= subdomains[:total_found] %>
+      <p class="text-base mb-3">
+        <strong class="text-title">Total Unique Subdomains Found:</strong> 
+        <span class="text-blue"><%= subdomains[:total_found] %></span>
       </p>
 
       <%= render 'reports/partials/subdomain_table', shown: shown %>
 
-      <p class="text-muted mt-3">
+      <p class="text-sm text-muted mt-3">
         High-risk subdomains include admin, login, and internal nodes.
       </p>
     </div>

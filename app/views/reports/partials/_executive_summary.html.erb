@@ -1,16 +1,22 @@
 <div class="report-section">
-  <h3 class="heading-secondary text-center">Executive Summary</h3>
+  <h3 class="heading-md text-center">Executive Summary</h3>
 
   <% overview = @report_data.dig(:executive_summary, :overview) %>
   <% targets = @report_data.dig(:executive_summary, :targets_scope) %>
   <% highlights = @report_data.dig(:executive_summary, :high_level_findings) %>
 
   <% if overview.present? %>
-    <p class="text-regular mb-4 text-left"><strong>Overview:</strong> <%= overview %></p>
+    <p class="text-base mb-4 text-left">
+      <strong class="text-title">Overview:</strong> 
+      <span class="text-base mb-4"><%= overview %></span>
+    </p>
   <% end %>
 
   <% if targets.present? %>
-    <p class="text-regular mb-4 text-left"><strong>Scope:</strong> <%= targets %></p>
+    <p class="text-base mb-4 text-left">
+      <strong class="text-title">Scope:</strong> 
+      <span class="text-base mb-4"><%= targets %></span>
+    </p>
   <% end %>
 
   <%= render 'reports/partials/metric_boxes', highlights: highlights %>
