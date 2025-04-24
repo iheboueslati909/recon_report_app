@@ -1,0 +1,25 @@
+<div class="introduction-section">
+  <div class="flex-grow-1">
+    <div class="logo-container">
+      <a href="https://www.pwnandpatch.com" target="_blank">
+        <%= image_tag "3.png", alt: "Oktoboot Logo", class: "logo-image" %>
+      </a>
+    </div>
+
+    <h1 class="heading-lg text-center mb-4">
+      Threat Intelligence Report
+    </h1>
+
+    <p class="text-base text-center mb-4">
+      <strong class="text-title"><%= @report_data.dig(:executive_summary, :targets_scope) || "Unspecified Domain" %></strong>
+    </p>
+
+    <div class="report-info-block mb-4">
+      <p class="text-base">
+        <strong class="text-title">Created At:</strong> <%= DateTime.parse(@report_data[:created_at].to_s).strftime("%B %d, %Y at %I:%M %p") rescue "N/A" %><br>
+        <strong class="text-title">Updated At:</strong> <%= DateTime.parse(@report_data[:updated_at].to_s).strftime("%B %d, %Y at %I:%M %p") rescue "N/A" %>
+      </p>
+    </div>
+  </div>
+
+</div>

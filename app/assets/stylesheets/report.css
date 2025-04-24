@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 /* ===============================
    DESIGN TOKENS
 =============================== */
@@ -29,6 +30,7 @@
 
 .page-break {
   page-break-before: always;
+  margin-bottom: 64px;
 }
 
 /* ===============================
@@ -137,6 +139,12 @@ body {
 }
 
 /* ===============================
+    INTRODUCTION 
+=============================== */
+.introduction-section {
+  margin-bottom: 140px;
+}
+/* ===============================
    RECOMMENDATIONS
 =============================== */
 .rec-group { margin-bottom: 25px; }
@@ -219,4 +227,23 @@ body {
   max-height: 280;
   width: auto;
   height: auto;
+}
+
+/* ===============================
+   REPORT INFO BLOCKS
+=============================== */
+.report-info-block {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.report-info-block p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-body);
+  margin-top: 20px;
+}
+
+.report-info-block strong {
+  color: var(--color-title);
 }
