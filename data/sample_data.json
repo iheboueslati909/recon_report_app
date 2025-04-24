@@ -56,7 +56,7 @@
         }
       },
       "subdomain_enumeration": {
-        "total_found": 12,
+        "total_found": 7,
         "shown": [
           "api.acme-corp.net",
           "admin.acme-corp.net",
