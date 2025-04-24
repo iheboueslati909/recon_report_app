@@ -129,6 +129,8 @@ body {
   padding: 15px;
   border-radius: 8px;
   color: var(--color-white);
+  margin: 8px;  /* Add default margin */
+  page-break-inside: avoid;  /* Prevent breaking in PDF */
 }
 
 .employee-card {
@@ -136,6 +138,8 @@ body {
   background-color: var(--color-bg-dark);
   padding: 12px 16px;
   border-radius: 6px;
+  margin: 8px;
+  page-break-inside: avoid;
 }
 
 /* ===============================
@@ -215,6 +219,17 @@ body {
   border-radius: 50%;
   width: 160px;
   height: 160px;
+  margin: 0 auto 30px;
+  background: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-logo-container {
+  border-radius: 100%;
+  width: 350px;
+  height: 350px;
   margin: 0 auto 30px;
   background: var(--color-white);
   display: flex;
@@ -338,4 +353,43 @@ body {
     position: absolute !important;
     pointer-events: none !important;
   }
+
+  .flex-wrap {
+    gap: 20px !important;
+    justify-content: space-around !important;
+  }
+
+  .metric-box {
+    min-width: 200px;
+    margin: 10px;
+  }
+  
+  #employee-info .flex-wrap {
+    gap: 20px !important;
+    justify-content: space-around !important;
+  }
+  
+  .employee-card {
+    min-width: 200px;
+    margin: 10px;
+    flex: 1 1 40%;
+  }
+}
+
+/* ===============================
+   FOOTER LOGO
+=============================== */
+.footer-logo {
+  margin-top: 100px;  /* Increased margin */
+  margin-bottom: 60px;  /* Increased margin */
+}
+
+.logo-container.small {
+  width: 200px;  /* Doubled from 100px */
+  height: 200px;  /* Doubled from 100px */
+}
+
+.logo-image.small {
+  max-width: 360px;  /* Doubled from 180px */
+  max-height: 360px;  /* Doubled from 180px */
 }
