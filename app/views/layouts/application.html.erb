@@ -18,10 +18,11 @@
     <link rel="apple-touch-icon" href="/icon.png">
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app %>
+    <%= stylesheet_link_tag :report %>
   </head>
 
   <body>
     <%= yield %>
+    <%= render 'reports/partials/side_menu' if !@is_pdf && request.format.html? %>
   </body>
 </html>

@@ -247,3 +247,95 @@ body {
 .report-info-block strong {
   color: var(--color-title);
 }
+
+/* ===============================
+   PDF DOWNLOAD BUTTON
+=============================== */
+.pdf-download-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.pdf-download-btn:hover {
+  background-color: var(--color-accent);
+}
+
+/* ===============================
+   SIDE MENU
+=============================== */
+.side-menu {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--color-surface);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.side-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu-item {
+  margin-bottom: 10px;
+}
+
+.side-menu-link {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.side-menu-link:hover {
+  background-color: var(--color-primary);
+}
+
+.side-menu-link.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.side-menu-link.pdf-link.active {
+  background-color: var(--color-accent);
+}
+
+.side-menu-item.pdf-download {
+  margin-top: 20px;
+  border-top: 1px solid var(--color-primary);
+  padding-top: 20px;
+}
+
+.side-menu-link.pdf-link {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.side-menu-link.pdf-link:hover {
+  background: var(--color-accent);
+}
+
+@media print {
+  .side-menu {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    pointer-events: none !important;
+  }
+}

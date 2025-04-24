@@ -1,4 +1,4 @@
-<div class="page-break">
+<div id="data-leaks" class="page-break">
   <% leaks = @report_data.dig(:findings, :data_leaks_and_breaches) || {} %>
   <% if leaks[:logstealer_leaks][:total].to_i > 0 || leaks[:public_leaks][:total].to_i > 0 || leaks[:combo_leaks][:total].to_i > 0 %>
     <div class="report-section">

@@ -1,14 +1,14 @@
-<div class="page-break">
-  <% certs = @report_data.dig(:findings, :certificate_https, :certificates) || [] %>
-  <% if certs.any? %>
-    <% now = Time.now.utc %>
-    <div class="report-section">
+<div id="certificate-https" class="page-break">
+  <div id="certificate-https" class="report-section">
+    <% certs = @report_data.dig(:findings, :certificate_https, :certificates) || [] %>
+    <% if certs.any? %>
+      <% now = Time.now.utc %>
       <h3 class="heading-md text-center">Certificate HTTPS Enumeration</h3>
 
       <p class="text-base mb-4">
         This section summarizes digital certificates discovered during reconnaissance. Certificates may reveal subdomains or exposure timelines. Review carefully — and check Oktoboot Dashboard for full details.
       </p>
       <%= render 'reports/partials/certificate_table', certs: certs, now: now %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

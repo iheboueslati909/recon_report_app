@@ -1,7 +1,7 @@
 <div class="page-break">
-  <% recommendations = @report_data[:recommendations] || {} %>
-  <% if recommendations.values.flatten.any? %>
-    <div class="report-section">
+  <div id="recommendations" class="report-section">
+    <% recommendations = @report_data[:recommendations] || {} %>
+    <% if recommendations.values.flatten.any? %>
       <h3 class="heading-md text-center">Recommendations</h3>
 
       <p class="text-base mb-4">
@@ -18,6 +18,6 @@
             items: items, 
             style_class: style_class if items&.any? %>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

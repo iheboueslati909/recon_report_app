@@ -1,10 +1,10 @@
 <div class="page-break">
-  <% meta = @report_data.dig(:findings, :metadata_public_files) || {} %>
-  <% files = meta[:files] || [] %>
-  <% sensitive = meta[:sensitive_data] || [] %>
+  <div id="metadata-files" class="report-section">
+    <% meta = @report_data.dig(:findings, :metadata_public_files) || {} %>
+    <% files = meta[:files] || [] %>
+    <% sensitive = meta[:sensitive_data] || [] %>
 
-  <% if files.any? || sensitive.any? %>
-    <div class="report-section">
+    <% if files.any? || sensitive.any? %>
       <h3 class="heading-md text-center">Metadata & Public Files</h3>
 
       <p class="text-base mb-4">
@@ -12,6 +12,6 @@
       </p>
 
       <%= render 'reports/partials/files_table', files: files if files.any? %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

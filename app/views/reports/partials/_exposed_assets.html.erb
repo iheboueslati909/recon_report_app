@@ -1,4 +1,4 @@
-<div class="page-break">
+<div id="exposed-assets" class="page-break">
   <% assets = @report_data.dig(:findings, :exposed_assets, :shown) || [] %>
   <% if assets.any? %>
     <div class="report-section">

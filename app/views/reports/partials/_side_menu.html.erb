@@ -1,0 +1,48 @@
+<nav class="side-menu">
+  <ul class="side-menu-list">
+  <li class="side-menu-item">
+  <%= link_to "Top of the page", "#introduction", class: "side-menu-link" %>
+</li>
+    <li class="side-menu-item">
+      <%= link_to "Executive Summary", "#metadata-executive-summary", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Methodology", "#methodology", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "DNS Intelligence", "#dns-intelligence", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Network Infrastructure", "#network-infrastructure", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Subdomain Enumeration", "#subdomain-enumeration", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Certificates & HTTPS", "#certificate-https", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Exposed Assets", "#exposed-assets", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Data Leaks", "#data-leaks", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Employee Info", "#employee-info", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Metadata Files", "#metadata-files", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Risk Assessment", "#risk-assessment", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item">
+      <%= link_to "Recommendations", "#recommendations", class: "side-menu-link" %>
+    </li>
+    <li class="side-menu-item pdf-download">
+      <%= link_to report_path(format: :pdf), class: "side-menu-link pdf-link", target: "_blank" do %>
+        <i class="fas fa-file-pdf"></i> Download PDF
+      <% end %>
+    </li>
+  </ul>
+</nav>
